@@ -135,7 +135,8 @@ namespace _0.Game.Scripts.Gameplay
         {
             base.GameOver(result);
             AudioManager.instance?.PlaySfx(AudioManager.instance.boom);
-            player.particle.gameObject.SetActive(true);
+            if(result) player.particle2.gameObject.SetActive(true);
+            else player.particle.gameObject.SetActive(true);
             DOVirtual.DelayedCall(1f, () =>
             {
                 UIController.instance.ShowGameOver(result);

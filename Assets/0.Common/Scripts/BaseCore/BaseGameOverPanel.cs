@@ -9,9 +9,10 @@ namespace _0.Common.Scripts.BaseCore
     public class BaseGameOverPanel : UIPanelBase
     {
         public TextMeshProUGUI title;
+        public Image titleImg;
         public Button btnNext;
         public Transform content;
-
+        private bool isWin = false;
         private void OnEnable()
         {
             content?.ShowPopup();
@@ -21,15 +22,18 @@ namespace _0.Common.Scripts.BaseCore
         {
             if (isWin) AudioManager.instance?.PlayWin();
             else AudioManager.instance?.PlayLose();
-            string t = isWin ? "MISSION COMPLETE" : "MISSION FAILED";
+            string t = isWin ? "Mission Complete" : "Mission Failed";
+            titleImg.color = isWin ? Color.green : Color.red;
             title.text = t;
             btnNext.interactable = isWin;
+            this.isWin = isWin;
         }
 
         public void Home()
         {
             AudioManager.instance?.PlayButtonClick();
             Time.timeScale = 1;
+            if(isWin) PlayerData.currentLevel += 1;
             string sceneName = $"Menu";
             SceneManager.LoadScene(sceneName);
         }

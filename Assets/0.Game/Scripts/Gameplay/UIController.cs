@@ -21,6 +21,7 @@ namespace _0.Game.Scripts.Gameplay
         public List<ResultUI> results;
         public TextMeshProUGUI levelText;
         public GameObject fx;
+        public GameObject tutorial;
         private void Awake()
         {
             instance = this;
@@ -28,6 +29,16 @@ namespace _0.Game.Scripts.Gameplay
             
         }
 
+        public void ShowTut()
+        {
+            AudioManager.instance?.PlayButtonClick();
+            tutorial.SetActive(true);
+        }
+        public void HideTut()
+        {
+            AudioManager.instance?.PlayButtonClick();
+            tutorial.SetActive(false);
+        }
         public void CorrectShape(int currentShape)
         {
             results[currentShape].Correct();
