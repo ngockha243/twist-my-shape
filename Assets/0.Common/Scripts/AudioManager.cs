@@ -71,8 +71,11 @@ namespace _0.Common.Scripts
         public void PlaySfx(AudioClip clip)
         {
             if (clip == null) return;
-            if (_sfxSrc.isPlaying) return;
-            _sfxSrc.PlayOneShot(clip, PlayerData.SfxVolume);
+            var src = gameObject.AddComponent<AudioSource>();
+            src.clip = clip;
+            src.volume = PlayerData.SfxVolume;
+            src.Play();
+            Destroy(src, clip.length);
         }
 
         public void SetSfxVolume(float v)

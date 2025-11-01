@@ -1737,7 +1737,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 8505749630499335721}
         m_TargetAssemblyTypeName: _0.Game.Scripts.Gameplay.GameOverPanel, Assembly-CSharp
-        m_MethodName: RestartSceneData
+        m_MethodName: Home
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

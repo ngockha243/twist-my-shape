@@ -15,7 +15,8 @@ namespace _0.Common.Scripts.BaseCore
         private bool isWin = false;
         private void OnEnable()
         {
-            content?.ShowPopup();
+            if(content != null)
+             content?.ShowPopup();
         }
 
         public virtual void SetResult(bool isWin)
@@ -34,7 +35,7 @@ namespace _0.Common.Scripts.BaseCore
             AudioManager.instance?.PlayButtonClick();
             Time.timeScale = 1;
             if(isWin) PlayerData.currentLevel += 1;
-            string sceneName = $"Menu";
+            string sceneName = $"Gameplay";
             SceneManager.LoadScene(sceneName);
         }
 
