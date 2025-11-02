@@ -28,6 +28,7 @@ namespace _0.Common.Scripts.BaseCore
             title.text = t;
             btnNext.interactable = isWin;
             this.isWin = isWin;
+            //
         }
 
         public void Home()
